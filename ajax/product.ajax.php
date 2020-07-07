@@ -31,8 +31,8 @@ class ProductAjax{
       $category = CategoryController::listCategories($categoryData);
 
       //Load image if exist path value in database
-      if ($item['image'] == null) {
-        $imageCell = '<img src="views/dist/img/user1-128x128.jpg" width="40px">';
+      if (!is_file($item['image'])) {
+        $imageCell = '<img src="views/dist/img/products/anonymous.png" width="40px">';
       }else{
         $imageCell = '<img src="'.$item['image'].'" width="40px">';
       }

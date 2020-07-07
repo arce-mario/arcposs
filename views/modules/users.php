@@ -36,7 +36,7 @@
                   <span class="input-group-addon">
                     <i class="fa fa-user"></i>
                   </span>
-                  <input type="text" class="form-control" id="userName" name="userName" placeholder="Nombre de usuario" required>
+                  <input type="text" class="form-control" id="username" name="username" placeholder="Nombre de usuario" required>
                 </div>
               </div>
               <!--input for user password value-->
@@ -45,7 +45,7 @@
                   <span class="input-group-addon">
                     <i class="fa fa-lock"></i>
                   </span>
-                  <input type="password" class="form-control" id="userPassword" name="userPassword" placeholder="Contraseña" required>
+                  <input type="password" class="form-control" autocomplete="new-password" id="password" name="password" placeholder="Contraseña" required>
                 </div>
               </div>
             </div>
@@ -139,6 +139,11 @@
                   $status = '<button type="button" class="btn btn-success btn-xs btn-status" '.
                             'user-id="'.$item["user_id"].'" style="width:53px;">Activo</button>';
                 }
+
+                if($item["picture"] != '' AND !file_exists($item["picture"]))
+                   $item["picture"] = 'views/dist/img/user_images/anonymous.png';
+
+                echo 'hola mundo '.file_exists($item["picture"]);
 
                 echo '<tr>
                   <td>'.++$count.'</td>

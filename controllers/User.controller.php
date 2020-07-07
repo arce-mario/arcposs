@@ -7,15 +7,14 @@ class UserController extends Controller{
 
   public function loginUser(){
 
-    if (isset($_POST['userName'])) {
-      
-      if (preg_match('/^[a-zA-Z0-9]+$/', $_POST['userName'])&&
-          isset($_POST['userPassword'])) {
+    if (isset($_POST['username'])) {
+
+      if (preg_match('/^[a-zA-Z0-9]+$/', $_POST['username'])&&
+          isset($_POST['password'])) {
 
           $table = "users";
-          $crypt = crypt($_POST['userPassword'], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
-          $userData = array('columnName' => "user_name", 'value' => $_POST['userName']);
-
+          $crypt = crypt($_POST['password'], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
+          $userData = array('columnName' => "user_name", 'value' => $_POST['username']);
           $response = UserModel::showUsers($table, $userData);
 
           if($response != NULL && $response["password"] == $crypt){
@@ -79,6 +78,30 @@ class UserController extends Controller{
       }
       header("location:users");
     }
+  }
+
+  function validateData($value, $opc){
+      //Evalue and validate data for option value
+      switch ($opc) {
+          case 1:
+            if (preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/',$value)){
+              return true;
+            }
+            break;
+          case 2:
+            if (preg_match('/^[a-zA-Z0-9]+$/',$value)){
+              return true;
+            }
+            break;
+          case 3:
+            if ((strpos($value, "'") == null && strpos($value, '"')) == null) {
+              return true;
+            }
+            break;
+          default:
+            return false;
+            break;
+        }
   }
 
   public function executePostActions(){

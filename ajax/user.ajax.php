@@ -16,12 +16,11 @@ class UserAjax{
     echo json_encode($response);
   }
 
-  static public function validateUserName($userName){
+  static public function validateUserName($username){
 
-    $data = array('columnName' => "user_name", 'value' => $userName);
+    $data = array('columnName' => "user_name", 'value' => $username);
 
     $response = UserController::listUsers("users",$data);
-    echo response;
     echo json_encode($response["user_name"]);
   }
 
@@ -60,8 +59,8 @@ if (isset($_POST["status"])) {
 
   $userAjax = new UserAjax();
   $userAjax -> editUser($_POST["userID"]);
-}elseif ($_POST["userName"]){
+}elseif ($_POST["username"]){
 
   $userAjax = new UserAjax();
-  $userAjax -> validateUserName($_POST["userName"]);
+  $userAjax -> validateUserName($_POST["username"]);
 }

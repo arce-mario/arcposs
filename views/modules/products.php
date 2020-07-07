@@ -91,7 +91,7 @@
             </div>
 
             <div class="col-md-4">
-              <img src="views/dist/img/products/default/anonymous.png" style="height: 94px;" class="img-thumbnail img-prev">
+              <img src="views/dist/img/products/anonymous.png" style="height: 94px;" class="img-thumbnail img-prev">
             </div>
           </div>
 
@@ -194,7 +194,7 @@
       </form>
       <?php
         $productController = new ProductController();
-        $productController -> excecutePostActions();
+        $productController -> executePostActions();
       ?>
     </div>
     <!-- /.modal-content -->

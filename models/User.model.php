@@ -18,11 +18,8 @@ class UserModel{
 
       //Set parameters of SQL query
       $stms -> bindParam(":value", $data['value'], PDO::PARAM_STR);
-
       $stms -> execute();
-
       return $stms -> fetch();
-
     }else{
       //Define SELECT SQL;
       $sql = "SELECT * FROM $table";

@@ -12,12 +12,12 @@
     <form action="#" method="post">
 
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Nombre de usuario" name="userName" required>
+        <input type="text" class="form-control" placeholder="Nombre de usuario" name="username" required>
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
 
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Contraseña" name="userPassword">
+        <input type="password" class="form-control" placeholder="Contraseña" name="password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
 

@@ -22,13 +22,13 @@
         <li class="dropdown user user-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <?php
-              if ($_SESSION['currentSession']['picture'] != '') {
+              if ($_SESSION['currentSession']['picture'] != '' AND is_file($_SESSION['currentSession']['picture'])) {
 
                 echo '<img src="'.$_SESSION['currentSession']['picture'].'" class="user-image" alt="User Image">';
               }else{
 
-                echo '<img src="views/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">';
-                $_SESSION['currentSession']['picture'] = "views/dist/img/user2-160x160.jpg";
+                echo '<img src="views/dist/img/user_images/anonymous-white.png" class="user-image" alt="User Image">';
+                $_SESSION['currentSession']['picture'] = "views/dist/img/user_images/anonymous-white.png";
               }
             ?>
             <span class="hidden-xs"><?php echo $_SESSION['currentSession']['user_name']; ?></span>

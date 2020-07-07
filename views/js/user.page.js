@@ -146,10 +146,10 @@ function changeStatusButton(status, button){
   }
 }
 
-$("#userName").change(function(){
-  var userName = $(this).val();
+$("#username").change(function(){
+  var username = $(this).val();
   var formData = new FormData();
-  formData.append("userName",userName);
+  formData.append("username",username);
 
   $("#userNameGroup").removeClass("has-error");
 
@@ -167,9 +167,9 @@ $("#userName").change(function(){
                    theme: "danger", position: "right-top", title:"Error en nombre de usuario", delay:4000});
         $("#userNameGroup").addClass("has-error");
         if ($('#opc').val() == 1) {
-          $("#userName").val($('#userNameTitle').text());
+          $("#username").val($('#userNameTitle').text());
         }else {
-          $("#userName").val("");
+          $("#username").val("");
         }
       }
     },
